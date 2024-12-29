@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation Tasks</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Task 1 -->
+    <div class="container">
+      <h1>This is a heading</h1>
+      <p>
+        Veggies es <span>bonus vobis</span>, proinde vos postulo essum magis
+        kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean
+        garlic.
+      </p>
+      <h2>A level 2 heading</h2>
+      <p>
+        Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot
+        courgette tatsoi pea sprouts fava bean collard greens dandelion okra
+        wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+      </p>
+    </div>
+
+    <!-- Task 2 -->
+    <div class="container">
+      <h1>This is a heading</h1>
+      <p>
+        Veggies es <span class="alert">bonus vobis</span>, proinde vos postulo
+        <span class="alert stop">essum magis</span> kohlrabi welsh onion daikon
+        amaranth tatsoi tomatillo melon azuki bean garlic.
+      </p>
+      <h2 id="special">A level 2 heading</h2>
+      <p>Gumbo beet greens corn soko endive gumbo gourd.</p>
+      <h2>Another level 2 heading</h2>
+      <p>
+        <span class="alert go">Parsley shallot</span> courgette tatsoi pea
+        sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion
+        cucumber earthnut pea peanut soko zucchini.
+      </p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Task 1
+        // 1>
+        const h1 = document.querySelector(".container:first-of-type h1");
+        h1.style.color = "blue";
+
+        // 2.
+        const h2 = document.querySelector(".container:first-of-type h2");
+        h2.style.backgroundColor = "blue";
+        h2.style.color = "white";
+
+        // 3.
+        const span = document.querySelector(".container:first-of-type span");
+        span.style.fontSize = "200%";
+
+        // Task 2
+        // 1.
+        const idElements = document.querySelectorAll("[id]");
+        idElements.forEach((el) => {
+          el.style.backgroundColor = "yellow";
+        });
+
+        // 2.
+        const alertElements = document.querySelectorAll(".alert");
+        alertElements.forEach((el) => {
+          el.style.border = "1px solid gray";
+        });
+
+        // 3.
+        const stopElements = document.querySelectorAll(".alert.stop");
+        stopElements.forEach((el) => {
+          el.style.color = "red";
+        });
+
+        // 4.
+        const goElements = document.querySelectorAll(".alert.go");
+        goElements.forEach((el) => {
+          el.style.color = "green";
+        });
+      });
+    </script>
+  </body>
+</html>
